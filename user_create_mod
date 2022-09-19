@@ -20,7 +20,7 @@ elif [ $Entry -eq 2 ]; then
              exit 1
         else
              sudo passwd $exiting
-             fi
+        fi
 else
         echo "use only digit 1 or 2"
         exit 1
