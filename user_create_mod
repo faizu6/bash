@@ -5,24 +5,23 @@ read -p " For new user creation press 1, for existing user press 2:" Entry
 
 if [ $Entry -eq 1 ]; then
         read -p "please enter the user name: " user
-         if [ -z "$user" ]; then
-                          echo "username can't be empty"
-                          exit 1
-                        else
-                          useradd $user
-                          passwd $user
-                        fi
+        if [ -z "$user" ]; then
+             echo "username can't be empty"
+             exit 1
+        else
+             useradd $user
+             passwd $user
+        fi
 
 elif [ $Entry -eq 2 ]; then
         read -p "please enter the user for password change: " existing
-         if [ -z "$existing" ]; then
-                          echo "username can't be empty"
-                          exit 1
-                         else
-                          sudo passwd $exiting
-                         fi
+        if [ -z "$existing" ]; then
+             echo "username can't be empty"
+             exit 1
+        else
+             sudo passwd $exiting
+             fi
 else
         echo "use only digit 1 or 2"
         exit 1
 fi
-
