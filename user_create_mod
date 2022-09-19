@@ -11,6 +11,13 @@ if [ $Entry -eq 1 ]; then
         else
              useradd $user
              passwd $user
+             RC=$?
+               if [ RC == 0 ]; then
+                   echo "user successfully created"
+               else
+                   echo "please enter a valid password"
+                   exit 1
+               fi
         fi
 
 elif [ $Entry -eq 2 ]; then
