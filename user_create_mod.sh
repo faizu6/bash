@@ -46,21 +46,19 @@ elif [ $Entry -eq 3 ]; then
                exit 1
          else
                cat /etc/passwd | grep -i $user2
-               RC=$?
-               if [ $? == 0 ]; then
-                   echo "user found"
-                   userdel -r $user2
-                   RC=$?
-                   if [ $? == 0 ]; then
-                         echo "user successfully deleted"
-                   else
-                         echo "user not deleted"
-                         exit 1
-                   fi
-               else
-                   echo "user not found"
-                   exit 1
-               fi
+                 if [ $? == 0 ]; then
+                     echo "user found"
+                     userdel -r $user2
+                        if [ $? == 0 ]; then
+                            echo "user successfully deleted"
+                        else
+                            echo "user not deleted"
+                            exit 1
+                        fi
+                 else
+                     echo "user not found"
+                     exit 1
+                 fi
          fi
 else
         echo "use only digit 1 or 2"
